@@ -1,0 +1,691 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vaccine_Register"
+        xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="Vaccine_Register.MainWindow"
+        mc:Ignorable="d"
+        Title="Elementum | Register" Height="630" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#181735">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- 
+            Start of Titlebar
+        -->
+        <Grid Background="#0F0F2D" MouseDown="Titlebar_MouseDown" Grid.ColumnSpan="2">
+
+            <!-- Column Definitons -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Title -->
+            <TextBlock Text="Elementum"
+						Foreground="White"
+					   Grid.Column="0"
+					   VerticalAlignment="Center"
+					   HorizontalAlignment="Center"
+					   FontFamily="Fonts/#Futura"
+					   FontWeight="UltraLight"
+					   FontSize="14"
+					   />
+
+            <!-- Minimize Button -->
+            <Button x:Name="MinimizeBttn"
+					Content="-"
+					Foreground="LightGray"
+					FontSize="14"
+					FontWeight="Medium"
+					Grid.Column="7"
+					HorizontalAlignment="Right"
+					Grid.ColumnSpan="1"
+					Margin="0,0 40,0" Click="MinimizeBttn_Click">
+
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="TextElement.FontFamily" Value="Fonts/Robot-Regular"/>
+                        <Setter Property="Background" Value="#FF0C9BB0"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF0C899C"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="20" Height="20" CornerRadius="12" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+
+            <!-- Close Button -->
+            <Button x:Name="CloseBttn"
+					Content="x"
+					Foreground="LightGray"
+					FontSize="14"
+					FontWeight="Medium"
+					Grid.Column="7"
+					Grid.ColumnSpan="1"
+					HorizontalAlignment="Right" Margin="0,0,10,0" Click="CloseBttn_Click"
+					>
+
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="TextElement.FontFamily" Value="Fonts/Roboto-Regular"/>
+                        <Setter Property="Background" Value="#FFFF0034"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFCE1238"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="20" Height="20" CornerRadius="12" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+        </Grid>
+        <!-- 
+            End of Titlebar
+        -->
+
+        <!-- 
+            Start of Column One 
+        -->
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <!-- COVID -->
+                <Image Width="70" Height="70" Source="Images/injection.png">
+                    <Image.Effect>
+                        <DropShadowEffect/>
+                    </Image.Effect>
+                </Image>
+
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="20,0,0,0">
+                    <TextBlock Text="COVID-19 Vaccination Card"
+						Foreground="White"
+					   FontFamily="Fonts/#Roboto-Regular.ttf"
+					   FontWeight="Regular"
+					   FontSize="18"							  				
+					   />
+                    <TextBlock Text="Registration Form"
+						Foreground="#FF00A9B0"
+					   FontFamily="Fonts/#Roboto-Regular.ttf"
+					   FontWeight="Regular"
+					   FontSize="12"			
+					   />
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Textbox -->
+            <TextBox x:Name="NameTxtbox"
+					 FontSize="12"
+					 Margin="20,20,0,0" 
+					 Height="34"
+					 HorizontalAlignment="Left" 
+                     Background="#0F0F2D"                     
+                     Width="350" Style="{StaticResource FullNameTxtBox}"/>
+
+            <TextBox x:Name="AddressTxtbox"
+					 Text=""
+					 FontSize="12"
+					 Margin="20,20,0,0" 
+					 Height="34"
+					 HorizontalAlignment="Left" 
+                     Background="#0F0F2D"
+                     Width="350" Style="{StaticResource AddressTxtBox}"/>
+
+        </StackPanel>
+
+        <!-- Right Side of the Column -->
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <!-- 
+                Start of Partners 
+            -->
+            <StackPanel Orientation="Horizontal" Margin="20" HorizontalAlignment="Right">
+                <Image Width="70" Height="68" Source="Images/cit.png" Margin="0,0,10,0">
+                    <Image.Effect>
+                        <DropShadowEffect/>
+                    </Image.Effect>
+                </Image>
+                <Image Width="65" Height="65" Source="Images/DOH.png">
+                    <Image.Effect>
+                        <DropShadowEffect/>
+                    </Image.Effect>
+                </Image>
+            </StackPanel>
+            <!-- 
+                End of Partners 
+            -->
+
+            <!-- 
+                Start of 2nd Column 
+            -->
+            <Grid Height="105">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+
+                <TextBox x:Name="ContactTxtbox"		
+                     PreviewTextInput="NumValidation"
+					 FontSize="12"
+					 Margin="0,23,0,1" 
+					 Grid.Column = "0"
+					 HorizontalAlignment="Left" Width="176"
+                         Padding="10 10 0 0"
+                         Style="{StaticResource ContactTxtBox}"
+                          Background="#0F0F2D"/>
+
+                <TextBox x:Name="CategoryTxtbox"					
+					 FontSize="12"                        
+					 HorizontalAlignment="Right" Width="175" Padding="10 10 0 0" Grid.Column="1" Margin="0,23.5,20,1"
+                         Style="{StaticResource CategoryTxtBox}"  Background="#0F0F2D"/>
+                <Grid Grid.ColumnSpan="2"  Margin="0,54,20,-5.2" Grid.RowSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="202*"/>
+                        <ColumnDefinition Width="106*"/>
+                        <ColumnDefinition Width="73*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox x:Name="PhilhealthTxtbox"		
+                     PreviewTextInput="NumValidation"
+					 FontSize="12"
+					 Margin="0,22,0,0" 
+					 HorizontalAlignment="Left" 
+                             Width="175" 
+                             Padding="10 10 0 0"
+                             Style="{StaticResource PhilhealthTxtBox}"
+                            Background="#0F0F2D"/>
+
+                    <Border Background="#FF0F0F2D"
+                            Height="30"
+                            CornerRadius="12"
+                            VerticalAlignment="Bottom"
+                            Grid.Column="1" Margin="0 0 0 2">
+
+                        <DatePicker x:Name="BirthdayDatePicker"      
+                                    PreviewTextInput="DateValidation"
+                                    Style="{DynamicResource BirthdayCalendar}" 
+                                    Foreground="White"                                     
+                                    Height="24"                                     
+                                    Background="{x:Null}" 
+                                    BorderBrush="{x:Null}"
+                                    Margin="5 0 5 0"/>
+                    </Border>
+
+                    <ComboBox x:Name="SexCombo"
+                              Grid.Column="2"
+                              Height="30"
+                              VerticalAlignment="Bottom"
+                              Margin="2, 0, 0, 1.2" 
+                              Padding="7"
+                              Foreground="White"
+                              Style="{DynamicResource CustomComboStyle}" SelectedIndex="0">
+                        <TextBlock Text="Gender" Foreground="DarkGray" IsEnabled="False"/>
+                        <ComboBoxItem Content="Male"/>
+                        <ComboBoxItem Content="Female"/>
+                    </ComboBox>
+
+                </Grid>
+            </Grid>
+            <!-- 
+                End of 2nd Column
+            -->
+        </StackPanel>
+        <!-- 
+            End of Vaccine Registration Stack Panel
+        -->
+
+        <!--
+            Start of Vaccine Data
+        -->
+        <Grid Grid.ColumnSpan="2" Margin="30,249.6,30,74.4" Grid.Row="1">
+
+            <!-- Row Definitions -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Column Definitions -->
+            <Grid Background="#FF0F0F2D">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="95*"/>
+                    <ColumnDefinition Width="53*"/>
+                    <ColumnDefinition Width="74*"/>
+                    <ColumnDefinition Width="74*"/>
+                    <ColumnDefinition Width="74*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- 
+                    Start of Titles
+                -->
+                <Label Content="Dosage Seq" Grid.Column="0" VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF00A9B0" FontFamily="Fonts/Futura" FontWeight="Light" Height="24" Margin="0,13,1.4,13.4"/>
+                <Label Content="Date" VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF00A9B0" FontWeight="Light" Grid.ColumnSpan="2" Height="26" Margin="163,12,0,12.4"/>
+                <Label Content="Vaccine Manufacturer" Grid.Column="2" VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF00A9B0" FontWeight="Light" Height="26" Margin="0,12,0,12.4"/>
+                <Label Content="Batch No." Grid.Column="3" VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF00A9B0" FontWeight="Light" Height="26" Margin="0,12,0,12.4"/>
+                <Label Content="Lot No." Grid.Column="4" VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF00A9B0" FontWeight="Light" Height="26" Margin="0,12,0,12.4"/>
+                <!--
+                    End of Titles
+                -->
+            </Grid>
+
+            <!-- 
+                Start of First Row in Table            
+            -->
+            <Grid Grid.RowSpan="2" Margin="0,50,0,0" Background="#FF1D1B3F">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="150*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="1st Dose" Foreground="White" FontFamily="Fonts/Futura" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Border BorderThickness="1" BorderBrush="#FF0F0F2D" 
+            Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
+
+                <!-- 
+                    Start of First Row                        
+                -->
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="32*"/>
+                            <ColumnDefinition Width="30*"/>
+                            <ColumnDefinition Width="30*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- 1st Does Date -->
+                        <Border BorderThickness="1" BorderBrush="#FF0F0F2D" 
+            Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
+                        <DatePicker x:Name="FirstDoseDatePicker"
+                                    PreviewTextInput="DateValidation"
+                                    Grid.Column="0" 
+                                    VerticalAlignment="Center"
+                                    Margin="5"                                    
+                                    DisplayDateStart="01/1/2020"
+                                    SelectedDate="01/1/2020" Style="{DynamicResource CustomCalendar}" Foreground="White"/>
+
+                        <!-- 1st Does Vaccine Manufacturer -->
+                        <Border BorderThickness="1" BorderBrush="#FF0F0F2D" 
+            Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"/>
+                        <ComboBox x:Name="FirstDoseVaccineManufacturerCombo"
+                              Grid.Column="1"
+                              Grid.RowSpan="2"
+                              Height="30"
+                              VerticalAlignment="Center"
+                              HorizontalContentAlignment="Center"
+                              Margin="5, 0, 5, 0" 
+                              Padding="7"
+                              Foreground="White"                                  
+                              Style="{DynamicResource CustomComboStyle}" SelectedIndex="0">
+                            <TextBlock Text="Manufacturer" Foreground="DarkGray" IsEnabled="False"/>
+                            <ComboBoxItem Content="Pfizer-BioNTech"/>
+                            <ComboBoxItem Content="AstraZeneca"/>
+                            <ComboBoxItem Content="Sinovac"/>
+                        </ComboBox>
+
+                        <!-- 1st Dose Batch No. -->
+                        <Border BorderThickness="1" BorderBrush="#FF0F0F2D" 
+            Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"/>
+                        <TextBox x:Name="FirstDoseBatchNoTxtBox"
+                                 Grid.Column="2"
+                                 Grid.Row="0" 
+                                 Grid.RowSpan="1"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"                            
+                                 Foreground="White"
+                                 CaretBrush="White" 
+                                 SelectionBrush="#FF0B8491"
+                                 VerticalContentAlignment="Center"
+                                 HorizontalContentAlignment="Center"
+                                 Style="{StaticResource BatchNoTxtBox}"
+                                 PreviewTextInput="NumValidation">
+                        </TextBox>
+
+                        <!-- 1st Dose Lot No. -->
+                        <Border BorderThickness="1" BorderBrush="#FF0F0F2D" 
+            Grid.Column="3" Grid.Row="0" Grid.RowSpan="2"/>
+                        <TextBox x:Name="FirstDoseLotNoTxtBox"
+                                 Grid.Column="3"
+                                 Grid.Row="0" 
+                                 Grid.RowSpan="1"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"                            
+                                 Foreground="White"
+                                 CaretBrush="White" 
+                                 SelectionBrush="#FF0B8491"
+                                 VerticalContentAlignment="Center"
+                                 HorizontalContentAlignment="Center"
+                                 Style="{StaticResource LotNoTxtBox}">
+                        </TextBox>
+
+                    </Grid>
+
+                    <!-- Second Row -->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120*"/>
+                            <ColumnDefinition Width="400*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- 1st Dose Vaccinator Name  -->
+                        <Border BorderThickness="1" BorderBrush="#FF0F0F2D" 
+            Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
+                        <Label Content="Vaccinator's Name"
+                               VerticalAlignment="Center"
+                               Foreground="#FF00A9B0"
+                               Margin="10"/>
+
+                        <TextBox x:Name="FirstDoseVaccinatorTxtBox"                                 
+                                 Grid.Column="3"
+                                 Grid.Row="0" 
+                                 Grid.RowSpan="1"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"                            
+                                 Foreground="White"
+                                 CaretBrush="White" 
+                                 SelectionBrush="#FF0B8491"
+                                 Style="{StaticResource VaccinatorTextBox}">
+                        </TextBox>
+
+                    </Grid>
+                </Grid>
+
+                <!-- 
+                    End of First Row
+                -->
+            </Grid>
+
+            <!-- 
+                End of First Row in Table                 
+            -->
+
+            <!-- 
+                Start of Second Row in Table
+            -->
+            <Grid Margin="0,0,0,0.5" Grid.Row="2" Background="#FF1D1B3F">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="150*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="1" BorderBrush="#FF0F0F2D" 
+            Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
+                <Label Content="2nd Dose" Foreground="White" FontFamily="Fonts/Futura" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                <!-- 
+                    Start of First Row
+                -->
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="32*"/>
+                            <ColumnDefinition Width="30*"/>
+                            <ColumnDefinition Width="30*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- 2nd Dose Date -->
+                        <Border BorderThickness="1" BorderBrush="#FF0F0F2D" 
+            Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
+                        <DatePicker x:Name="SecondDoseDatePicker"
+                                    PreviewTextInput="DateValidation"
+                                    Grid.Column="0" 
+                                    Grid.Row="0"
+                                    VerticalAlignment="Center"
+                                    Margin="5"
+                                    DisplayDateStart="01/1/2020"
+                                    SelectedDate="01/1/2020" Style="{DynamicResource CustomCalendar}" Foreground="White"/>
+
+
+                        <!-- 2nd Dose Vaccine Manufacturer -->
+                        <Border BorderThickness="1" BorderBrush="#FF0F0F2D" 
+            Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"/>
+                        <ComboBox x:Name="SecondDoseVaccineManufacturerCombo"
+                              Grid.Column="1"
+                              Grid.RowSpan="2"
+                              Height="30"
+                              VerticalAlignment="Center"
+                              HorizontalContentAlignment="Center"
+                              Margin="5, 0, 5, 0" 
+                              Padding="7"
+                              Foreground="White"
+                              Style="{DynamicResource CustomComboStyle}" SelectedIndex="0">
+                            <TextBlock Text="Manufacturer" Foreground="DarkGray" IsEnabled="False"/>
+                            <ComboBoxItem Content="Pfizer-BioNTech"/>
+                            <ComboBoxItem Content="AstraZeneca"/>
+                            <ComboBoxItem Content="Sinovac"/>
+                        </ComboBox>
+
+                        <!-- 2nd Dose Batch No. -->
+                        <Border BorderThickness="1" BorderBrush="#FF0F0F2D" 
+            Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"/>
+                        <TextBox x:Name="SecondDoseBatchNoTxtBox"
+                                 Grid.Column="2"
+                                 Grid.Row="0" 
+                                 Grid.RowSpan="1"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"                            
+                                 Foreground="White"
+                                 CaretBrush="White" 
+                                 SelectionBrush="#FF0B8491"
+                                 VerticalContentAlignment="Center"
+                                 HorizontalContentAlignment="Center"
+                                 Style="{StaticResource BatchNoTxtBox}"
+                                 PreviewTextInput="NumValidation">
+                        </TextBox>
+
+                        <!-- 2nd Dose Lot No. -->
+                        <Border BorderThickness="1" BorderBrush="#FF0F0F2D" 
+            Grid.Column="3" Grid.Row="0" Grid.RowSpan="2"/>
+                        <TextBox x:Name="SecondDoseLotNoTxtBox"
+                                 Grid.Column="3"
+                                 Grid.Row="0" 
+                                 Grid.RowSpan="1"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"                            
+                                 Foreground="White"
+                                 CaretBrush="White" 
+                                 SelectionBrush="#FF0B8491"
+                                 VerticalContentAlignment="Center"
+                                 HorizontalContentAlignment="Center"
+                                 Style="{StaticResource LotNoTxtBox}">
+                        </TextBox>
+
+                    </Grid>
+
+                    <!-- Second Row -->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120*"/>
+                            <ColumnDefinition Width="400*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- 2nd Dose Vaccinators name -->
+                        <Border BorderThickness="1" BorderBrush="#FF0F0F2D" 
+            Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
+                        <Label Content="Vaccinator's Name"
+                               VerticalAlignment="Center"
+                               Foreground="#FF00A9B0"
+                               Margin="10"/>
+
+                        <TextBox x:Name="SecondDoseVaccinatorTxtBox"                                 
+                                 Grid.Column="3"
+                                 Grid.Row="0" 
+                                 Grid.RowSpan="1"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"                            
+                                 Foreground="White"
+                                 CaretBrush="White" 
+                                 SelectionBrush="#FF0B8491"
+                                 Style="{StaticResource VaccinatorTextBox}">
+                        </TextBox>
+
+                    </Grid>
+                </Grid>
+                <!-- 
+                   End of First Row
+                -->
+            </Grid>
+            <!-- 
+                End of Second Row in Table
+            -->
+        </Grid>
+
+        <!--
+            Start of Bottom Grid
+        -->
+        <Grid Grid.ColumnSpan="2" Grid.Row="1" Margin="30,530.6,30,27.4">
+
+            <!-- Column Definiton -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="357*"/>
+                <ColumnDefinition Width="160*"/>
+                <ColumnDefinition Width="112*"/>
+                <ColumnDefinition Width="111.2"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="FacilityTxtbox"					 
+					 FontSize="12"
+					 Margin="0,5" 
+                     Grid.Column="0"
+					 HorizontalAlignment="Left"
+                     Width="350"
+                     Padding="10 10 0 0"
+                     Style="{StaticResource FacilityTxtBox}" 
+                            Background="#0F0F2D"
+                            CaretBrush="White"/>
+
+            <TextBox x:Name="ContactNoBottomTxtbox"	
+                     PreviewTextInput="NumValidation"
+					 FontSize="12"
+					 Margin="2.2,5,0,5" 
+                     Grid.Column="1"
+					 HorizontalAlignment="Left"
+                     Width="131"
+                     Padding="10 10 0 0"
+                     Style="{StaticResource ContactTxtBox}"
+                            Background="#0F0F2D"
+                            CaretBrush="White"/>
+
+            <!-- 
+                End of  Buttons 
+            -->
+            <!-- 
+                Start of  Buttons 
+            -->
+
+            <Button x:Name="CancelBttn"
+					Content="Cancel"
+					Foreground="Black"
+					FontSize="14"
+					FontWeight="Light"
+					Grid.Column="2"
+					Width="110"
+                    Click="CancelBttn_Click">
+
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="TextElement.FontFamily" Value="Fonts/Roboto-Regular"/>
+                        <Setter Property="Background" Value="#FFFF4E4E"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFD34D4D"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="104" Height="30" CornerRadius="12" Background="{TemplateBinding Background}" Margin="0,6,0,5.6">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button x:Name="SubmitBttn"
+					Content="Submit"
+					Foreground="Black"
+					FontSize="14"
+					FontWeight="Light"
+					Grid.Column="3"
+					Width="109"
+                    Click="SubmitBttn_Click" Height="42" Margin="1.2,0,1,0" VerticalAlignment="Top">
+
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="TextElement.FontFamily" Value="Fonts/Roboto-Regular"/>
+                        <Setter Property="Background" Value="#FF92FF4E"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF78B651"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="104" Height="30" CornerRadius="12" Background="{TemplateBinding Background}" Margin="0,6,0,5.6">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </Grid>
+        <!-- 
+            End of Bottom Grid 
+        -->
+
+        <!--
+            End of Vaccine Data
+        -->
+    </Grid>
+</Window>

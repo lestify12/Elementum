@@ -1,0 +1,226 @@
+﻿<Window x:Class="Vaccine_Register.AdminLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vaccine_Register"
+        mc:Ignorable="d"
+        Title="Elementum | Title" Height="630" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#181735">
+    <Grid>
+        <Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!-- 
+            Start of Titlebar
+        -->
+                <Grid Background="#0F0F2D" MouseDown="Titlebar_MouseDown" Grid.ColumnSpan="2">
+
+                    <!-- Column Definitons -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Title -->
+                    <TextBlock Text="Elementum"
+						Foreground="White"
+					   Grid.Column="0"
+					   VerticalAlignment="Center"
+					   HorizontalAlignment="Center"
+					   FontFamily="Fonts/#Futura"
+					   FontWeight="UltraLight"
+					   FontSize="14"
+					   />
+
+                    <!-- Minimize Button -->
+                    <Button x:Name="MinimizeBttn"
+					Content="-"
+					Foreground="LightGray"
+					FontSize="14"
+					FontWeight="Medium"
+					Grid.Column="7"
+					HorizontalAlignment="Right"
+					Grid.ColumnSpan="1"
+					Margin="0,0 40,0" Click="MinimizeBttn_Click">
+
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/Robot-Regular"/>
+                                <Setter Property="Background" Value="#FF0C9BB0"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF0C899C"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="20" Height="20" CornerRadius="12" Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+
+                    <!-- Close Button -->
+                    <Button x:Name="CloseBttn"
+					Content="x"
+					Foreground="LightGray"
+					FontSize="14"
+					FontWeight="Medium"
+					Grid.Column="7"
+					Grid.ColumnSpan="1"
+					HorizontalAlignment="Right" Margin="0,0,10,0" Click="CloseBttn_Click"
+					>
+
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/Roboto-Regular"/>
+                                <Setter Property="Background" Value="#FFFF0034"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FFCE1238"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="20" Height="20" CornerRadius="12" Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="0.1,1" EndPoint="0.9,1">
+                            <GradientStop Color="#39385D" Offset="1"/>
+                            <GradientStop Color="#FF0C9BB0" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <Border Height="530" VerticalAlignment="Top" CornerRadius="0,0,0,0" Background="#181735">
+                    </Border>
+
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Center"
+                            Margin="80">
+                        <Image Width="250" Height="250"
+                                    Source="Images/injection.png"
+                                    Stretch="Fill">
+                            <Image.Effect>
+                                <DropShadowEffect/>
+                            </Image.Effect>
+                        </Image>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                            Margin="0,400,0,0">
+
+                        <!-- Login Page Button-->
+                        <Button Content="Login"
+                        Foreground="White"
+                        FontSize="15"
+                        FontWeight="Normal" Click="LoginPageBtn"
+                        Margin="0,0,10,0">
+
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="TextElement.FontFamily" Value="Fonts/#Roboto-Regular.ttf"/>
+                                    <Setter Property="Background" Value="#3398CC"/>
+                                    <Setter Property="Cursor" Value="Hand"/>
+
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FF0C9BB0"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="100" Height="35"
+                                        CornerRadius="12"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <!-- Register Page Button -->
+                        <Button Content="Sign up"
+                        Foreground="White"
+                        FontSize="15"
+                        FontWeight="Normal" Click="RegPageBtn">
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="TextElement.FontFamily" Value="Fonts/#Roboto-Regular.ttf"/>
+                                    <Setter Property="Background" Value="#39385D"/>
+                                    <Setter Property="Cursor" Value="Hand"/>
+
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#3A3942"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="100" Height="35"
+                                        CornerRadius="12"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Column="1"
+                      Grid.Row="1"
+                      Grid.RowSpan="2">
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                            <GradientStop Color="#39385D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    
+                    
+                    
+                    <Border Height="530" VerticalAlignment="Top" CornerRadius="0,0,180,0" Background="#181735"/>
+                    <Frame x:Name="Admin" NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

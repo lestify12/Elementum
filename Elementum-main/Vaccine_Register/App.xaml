@@ -1,0 +1,88 @@
+﻿<Application x:Class="Vaccine_Register.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Vaccine_Register"
+             StartupUri="Title.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- 
+                    Start of Textboxes Styles         
+                -->
+        
+                <!-- Information Grid -->
+                <ResourceDictionary Source="Themes/Textbox/InformationGrid/FullNameTextbox.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/InformationGrid/AddressTextbox.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/InformationGrid/CategoryTextbox.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/InformationGrid/ContactNoTextbox.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/InformationGrid/PhilhealthTextbox.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/InformationGrid/EmailTextBox.xaml"/>
+                
+                <!-- Bottom Grid -->
+                <ResourceDictionary Source="Themes/Textbox/BottomGrid/FacilityTextbox.xaml"/>
+                
+                <!-- Vaccine Grid -->
+                <ResourceDictionary Source="Themes/Textbox/VaccineInfo/BatchNoTextbox.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/VaccineInfo/LotNoTextbox.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/VaccineInfo/VaccinatorTextBox.xaml"/>
+                
+                <!-- Admin Login -->
+                <ResourceDictionary Source="Themes/Textbox/AdminLogin/UsernameTxtBox.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/AdminLogin/PasswordTxtBox.xaml"/>
+
+                <!-- Admin Register -->
+                <ResourceDictionary Source="Themes/Textbox/Signup/SUusertxtbox.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/Signup/SUpasswordtxtbox.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/Signup/SUreenterpasstxtbox.xaml"/>
+                
+                <!-- Email -->
+                <ResourceDictionary Source="Themes/Textbox/Email/CompanyEmail.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/Email/CompanyPassword.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/Email/EmailContent.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/Email/PatientEmail.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/Email/PortCode.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/Email/SMTPserver.xaml"/>
+                <ResourceDictionary Source="Themes/Textbox/Email/Subject.xaml"/>
+
+                <!-- 
+                    End of Textboxes Styles
+                -->
+                
+                <!-- 
+                    Start of Custom Calendar 
+                -->
+
+                <ResourceDictionary Source="Themes/Calendar/CustomCalendar.xaml"/>
+                <ResourceDictionary Source="Themes/Calendar/BirthdayCalendar.xaml"/>
+                
+
+                <!-- 
+                    End of Custom Calendar 
+                -->
+                
+                <!-- 
+                    Start of Custom Combobox 
+                -->
+
+                <ResourceDictionary Source="Themes/Combobox/CustomComboBox.xaml"/>
+                <ResourceDictionary Source="Themes/Combobox/VaccineComboBox.xaml"/>
+                
+                <!-- 
+                    End of Custom Combobox 
+                -->
+                
+                <!-- 
+                Start of Button Theme 
+                -->
+
+                <ResourceDictionary Source="Themes/PatientsRecordbutton.xaml"/>
+
+                <!-- 
+                End of Button Theme 
+                -->
+
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
